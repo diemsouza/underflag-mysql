@@ -1,6 +1,6 @@
 {
   "name": "underflag-mysql",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "mysql provider for underflag",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,7 +22,7 @@
     "mysql"
   ],
   "author": "Diego Souza",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dieg0s0uza/underflag-mysql/issues"
   },
@@ -50,6 +50,6 @@
   },
   "dependencies": {
     "mysql2": "^2.3.3",
-    "underflag": "^1.0.0"
+    "underflag": "^1.3.0"
   }
 }
