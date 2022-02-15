@@ -1,4 +1,4 @@
-import { IDataProvider, Feature } from 'underflag';
+import { IDataProvider, BaseFeature } from 'underflag';
 import { Connection, Pool } from 'mysql2';
 
 const DEFAULT_TABLE = 'features';
@@ -19,20 +19,20 @@ export class MysqlDataProvider implements IDataProvider {
         this.tableName = options.tableName || DEFAULT_TABLE;
     }
 
-    async getAll(): Promise<Feature[]> {
+    async getAll(): Promise<BaseFeature[]> {
         return new Promise((resolve, reject) => {
             this.connection.query('SELECT * FROM ??', [this.tableName], (err, results: any[]) => {
                 if (err) return reject(err);
-                resolve(results as Feature[]);
+                resolve(results as BaseFeature[]);
             });
         });
     }
 
-    async get(key: string): Promise<Feature | undefined> {
+    async get(key: string): Promise<BaseFeature | undefined> {
         return new Promise((resolve, reject) => {
             this.connection.query('SELECT * FROM ?? WHERE `key` = ?', [this.tableName, key], (err, results: any[]) => {
                 if (err) return reject(err);
-                resolve(results.length ? results[0] as Feature : undefined);
+                resolve(results.length ? results[0] as BaseFeature : undefined);
             });
         });
     }
